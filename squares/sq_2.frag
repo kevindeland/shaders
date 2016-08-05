@@ -1,14 +1,16 @@
 /**
- * This file creates a single outlined square
- * Predecessors: sq_0
+ * This file creates a single pulsating square
+ * Predecessors: sq_1
  */
 
 #ifdef GL_ES
 precision mediump float;
 #endif
 
+#define PI 3.14159265359
 
 uniform vec2 u_resolution;
+uniform float u_time;
 
 void main(void) {
   // initialize colors
@@ -26,10 +28,17 @@ void main(void) {
   float midY = u_resolution.y / 2.0;
   
   // square attributes
-  float squareWidth = 100.0;
+  float staticSquareWidth = 100.0;
   float squareBorder = 20.0;
   float squareCenterX = midX;
   float squareCenterY = midY;
+
+  // square pulation attributes
+  // TODO double check me
+  float BPM = 120.0;
+  float pulseSpeed = BPM / 60.0 * (PI * 2.0);
+  float pulseAmplitude = 20.0;
+  float squareWidth = staticSquareWidth + pulseAmplitude * sin(pulseSpeed * u_time);
 
   if(
      (// inside outer square

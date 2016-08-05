@@ -1,5 +1,6 @@
 /**
  * This file creates a single solid square
+ * Predecessors: n/a
  */
 
 #ifdef GL_ES
@@ -8,7 +9,6 @@ precision mediump float;
 
 
 uniform vec2 u_resolution;
-uniform float u_time;
 
 void main(void) {
   // initialize colors
@@ -27,15 +27,15 @@ void main(void) {
   
   // square attributes
   float squareWidth = 300.0;
-  float squareBorder = 10.0;
   float squareCenterX = midX;
   float squareCenterY = midY;
 
-  if( gl_FragCoord.x > squareCenterX - (squareWidth / 2.0) &&
-      gl_FragCoord.x < squareCenterX + (squareWidth / 2.0) &&
-      gl_FragCoord.y > squareCenterY - (squareWidth / 2.0) &&
-      gl_FragCoord.y < squareCenterY + (squareWidth / 2.0)
-      )
+  if(
+     gl_FragCoord.x > squareCenterX - (squareWidth / 2.0) &&
+     gl_FragCoord.x < squareCenterX + (squareWidth / 2.0) &&
+     gl_FragCoord.y > squareCenterY - (squareWidth / 2.0) &&
+     gl_FragCoord.y < squareCenterY + (squareWidth / 2.0)
+     )
     gl_FragColor = squareColor;
   
 }
