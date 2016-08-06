@@ -23,6 +23,7 @@ void drawDiamond(float x, float y,float w,float h, vec4 c) {
     gl_FragColor = c;
 }
 
+
 void main(void) {
   // initialize colors
   vec4 BLK_4 = vec4(0.0, 0.0, 0.0, 1.0);
@@ -52,6 +53,38 @@ void main(void) {
   float x2 = x;
   float y2 = y - w;
 
-  drawDiamond(x1, y1, wh1, wh1, diamondColor);
-  drawDiamond(x2, y2, wh1, wh1, diamondColor);
+  float diamondUnit = 40.0;
+  float diamondGrid = 8.0;
+
+  float xA = x + 0.0 * diamondUnit,
+    yA = y + 2.0 * diamondUnit,
+    wA = 2.0 * diamondUnit;
+  drawDiamond(xA, yA, wA, wA, diamondColor);
+
+  float xB = x - 3.0 * diamondUnit,
+    yB = y + 0.0 * diamondUnit,
+    wB = 1.0 * diamondUnit;
+  drawDiamond(xB, yB, wB, wB, diamondColor);
+
+  float xC = x - 2.0 * diamondUnit,
+    yC = y - 1.0 * diamondUnit,
+    wC = 1.0 * diamondUnit;
+  drawDiamond(xC, yC, wC, wC, diamondColor);
+
+  float xD = x + 0.0 * diamondUnit,
+    yD = y - 3.0 * diamondUnit,
+    wD = 1.0 * diamondUnit;
+  drawDiamond(xD, yD, wD, wD, diamondColor);
+
+  float xE = x + 2.0 * diamondUnit,
+    yE = y - 1.0 * diamondUnit,
+    wE = 1.0 * diamondUnit;
+  drawDiamond(xE, yE, wE, wE, diamondColor);
+
+  float xF = x + 3.0 * diamondUnit,
+    yF = y - 0.0 * diamondUnit,
+    wF = 1.0 * diamondUnit;
+  drawDiamond(xF, yF, wF, wF, diamondColor);
+
+    //  drawDiamond(x2, y2, wh1, wh1, diamondColor);
 }
