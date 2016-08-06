@@ -46,15 +46,15 @@ void main(void) {
   float w = squarePixelTolerance;
   float b = halfSquareBorder;
   float d = squareDist;
+  float mid = d / 2.0;
 
-  // corners
   if(
      // lower left (upper right corner)
-     ((fmx < w + b) && (fmy < w + b) && ( (fmx > w - b) || (fmy > w - b))) ||
+     //((fmx < w + b) && (fmy < w + b) && ( (fmx > w - b) || (fmy > w - b))) ||
      // upper left (lower right corner)
-     ((fmx < w + b) && (fmy > d - (w + b)) && ( (fmx > w - b) || (fmy < d - (w - b))) ) ||
+          ((fmx < w + b) && (fmy > d - (w + b)) && ( (fmx > w - b) || (fmy < d - (w - b))) ) ||
      // upper right (lower left corner)
-     ( (fmx > d - (w + b)) && (fmy > d - (w + b)) && ( (fmx < d - (w - b)) || (fmy < d - (w - b))) ) ||
+     //     ( (fmx > d - (w + b)) && (fmy > d - (w + b)) && ( (fmx < d - (w - b)) || (fmy < d - (w - b))) ) ||
      // lower right (upper left corner)
      ( (fmx > d - (w + b)) && (fmy < w + b) && ( (fmx < d - (w - b)) || (fmy > w - b) ) )
      )
